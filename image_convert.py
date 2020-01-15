@@ -41,7 +41,7 @@ This API call can also recognize handwriting (not shown).
 '''
 print("===== Batch Read File - remote =====")
 # Get an image with printed text
-remote_image_printed_text_url = "http://photos1.blogger.com/blogger/3880/1489/1600/1918%20Standings.jpg"
+remote_image_printed_text_url = "https://raw.githubusercontent.com/tc-nyc/Cog-Services-Demo/master/Parts%20Needed.jpg"
 
 # Call API with URL and raw response (allows you to get the operation location)
 recognize_printed_results = computervision_client.batch_read_file(remote_image_printed_text_url,  raw=True)
@@ -58,10 +58,14 @@ while True:
         break
     time.sleep(1)
 
+myData = []
+
 # Print the detected text, line by line
 if get_printed_text_results.status == TextOperationStatusCodes.succeeded:
     for text_result in get_printed_text_results.recognition_results:
         for line in text_result.lines:
             print(line.text)
+            myData.append(line.text)
             #finalDataset = pandas.DataFrame(line.text, columns = line.bounding_box)
-print()
+
+finalDataset = pandas.DataFrame(myData)
