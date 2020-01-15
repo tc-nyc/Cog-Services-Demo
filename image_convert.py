@@ -41,7 +41,7 @@ This API call can also recognize handwriting (not shown).
 '''
 print("===== Batch Read File - remote =====")
 # Get an image with printed text
-remote_image_printed_text_url = "https://raw.githubusercontent.com/tc-nyc/Cog-Services-Demo/master/Parts%20Needed.jpg"
+remote_image_printed_text_url = "https://raw.githubusercontent.com/tc-nyc/Cog-Services-Demo/master/Parts%20Needed%20-%20Day%202.jpg"
 
 # Call API with URL and raw response (allows you to get the operation location)
 recognize_printed_results = computervision_client.batch_read_file(remote_image_printed_text_url,  raw=True)
