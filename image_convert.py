@@ -19,6 +19,7 @@ import pandas
 # Add your Computer Vision subscription key to your environment variables.
 if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
     subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
+    
 else:
     print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
     sys.exit()
@@ -40,8 +41,11 @@ This example will extract printed text in an image, then print results, line by 
 This API call can also recognize handwriting (not shown).
 '''
 print("===== Batch Read File - remote =====")
-# Get an image with printed text
-remote_image_printed_text_url = "https://raw.githubusercontent.com/tc-nyc/Cog-Services-Demo/master/Parts%20Needed%20-%20Day%202.jpg"
+# Get an image with printed text, there are a few examples on my github repo: https://github.com/tc-nyc/Cog-Services-Demo
+
+#remote_image_printed_text_url = "https://raw.githubusercontent.com/tc-nyc/Cog-Services-Demo/master/Parts%20Needed%20-%20Day%202.jpg"
+
+remote_image_printed_text_url = "https://raw.githubusercontent.com/tc-nyc/Cog-Services-Demo/master/Target%20Data.PNG"
 
 # Call API with URL and raw response (allows you to get the operation location)
 recognize_printed_results = computervision_client.batch_read_file(remote_image_printed_text_url,  raw=True)
@@ -59,6 +63,8 @@ while True:
     time.sleep(1)
 
 myData = []
+
+125688 
 
 # Print the detected text, line by line
 if get_printed_text_results.status == TextOperationStatusCodes.succeeded:
